@@ -10,20 +10,25 @@
 </head>
 <body>
 
-  <div class="main">
+  <div id="main">
     <div class="header">
       <h1>你想干甚？</h1>
     </div>
-    <div id="task-form">
+    <form @submit.prevent="merge" id="task-form">
       <div class="wrap">
-        <input type="text" id="task-input">
+        <input v-model="current.title" type="text" id="task-input">
         <button type="submit" name="button">记下</button>
       </div>
 
-    </div>
+    </form>
     <div class="task-list">
-      <div class="wrap">
-        <div class="item">asdf</div>
+      <div  class="wrap">
+        未完成
+        <div v-for="todo in list" class="item">
+          {{todo.title}}
+          <button @click="remove" type="button" name="button">删除</button>
+          <button @click="set_current(todo)" type="button" name="button">更新</button>
+        </div>
       </div>
     </div>
     <div class="task-list">
@@ -34,6 +39,9 @@
     </div>
   </div>
 
+<script src="node_modules\jquery\dist\jquery.js" charset="utf-8"></script>
 <script src="node_modules\vue\dist\vue.js" charset="utf-8"></script>
+<script src="js/myStorage.js" charset="utf-8"></script>
+<script src="js/main.js" charset="utf-8"></script>
 </body>
 </html>
