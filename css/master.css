@@ -1,0 +1,28 @@
+*{
+  background: rgba(0,0,0,0.01);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+
+}
+.main{
+  width: 60%;
+  margin: 0 auto;
+}
+.wrap{
+  width: 100%;
+}
+input,button{
+
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+input{
+  width: 80%;
+}
+button{
+  width: 15%;
+}
+.header,#task-form,.task-list,.wrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
