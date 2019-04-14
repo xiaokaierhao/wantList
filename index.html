@@ -24,16 +24,24 @@
     <div class="task-list">
       <div  class="wrap">
         未完成
-        <div v-for="todo in list" class="item">
+        <div v-if="!todo.complete" v-for="todo in list" class="item">
+          <button @click="toggle_com(todo.id)" type="button" name="button">完成</button>
           {{todo.title}}
-          <button @click="remove" type="button" name="button">删除</button>
+          <button @click="remove(todo.id)" type="button" name="button">删除</button>
           <button @click="set_current(todo)" type="button" name="button">更新</button>
         </div>
       </div>
     </div>
     <div class="task-list">
       <div class="wrap">
-        <div class="item">asdf</div>
+        已完成
+        <div class="item">
+          <div v-if="todo.complete" v-for="todo in list" class="item completed">
+            <button @click="toggle_com(todo.id)" type="button" name="button">未完成</button>
+            {{todo.title}}
+            <button @click="remove(todo.id)" type="button" name="button">删除</button>
+          </div>
+        </div>
       </div>
 
     </div>

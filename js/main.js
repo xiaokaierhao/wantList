@@ -24,17 +24,18 @@ $(function () {
           if(!current.title && current.title !== 0) return;
           var todo = copy(this.current);//拷贝input提交的东西
           this.last_id++;
-          ms.set('last_id',this.last_id);
+          todo.id = this.last_id;
+          ms.set('last_id',todo.id);
           this.list.push(todo);
         }
-        ms.set('list',this.list);
+        // ms.set('list',this.list);
         this.reset_current();
 
       },
       remove:function (id) {
         var index = this.find_index(id);
         this.list.splice(index,1);
-        ms.set('list',this.list);
+        // ms.set('list',this.list);
       },
       set_current:function (todo) {
         this.current = copy(todo);
@@ -47,6 +48,11 @@ $(function () {
           return item.id == id;
         });
       },
+      toggle_com:function (id) {
+        var i = this.find_index(id);
+        Vue.set(this.list[i],'complete',!this.list[i].complete);
+
+      }
 
 
     },
