@@ -16,7 +16,7 @@ $(function () {
         var is_update,id;
         is_update = id = this.current.id;
         if(is_update){
-          var index = this.find_index(item);
+          var index = this.find_index(id);
             Vue.set(this.list,index,copy(this.current));
 
         }else{
